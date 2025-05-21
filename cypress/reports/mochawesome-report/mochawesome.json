@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-05-21T13:59:40.253Z",
-    "end": "2025-05-21T14:00:24.290Z",
-    "duration": 44037,
+    "start": "2025-05-21T14:34:20.141Z",
+    "end": "2025-05-21T14:35:02.164Z",
+    "duration": 42023,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "06b517f9-f041-460b-8d6b-a89fd6809b17",
+      "uuid": "bf01e458-2dc7-4c28-b96e-c0e4a83e643b",
       "title": "",
       "fullFile": "cypress\\e2e\\FullPurchaseFlow.cy.js",
       "file": "cypress\\e2e\\FullPurchaseFlow.cy.js",
@@ -27,18 +27,18 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "3144f4c1-b9cc-40b3-adb4-7fec7cfc708d",
-          "title": "Register, Logout, Login, and Purchase via Bank Wire",
+          "uuid": "37827224-a445-4c4f-891d-ee89981f9498",
+          "title": "Register, Login, Purchase, Logout",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "registers, logs out, logs in, adds product to cart, and completes purchase via Bank Wire",
-              "fullTitle": "Register, Logout, Login, and Purchase via Bank Wire registers, logs out, logs in, adds product to cart, and completes purchase via Bank Wire",
+              "title": "Product Purchase",
+              "fullTitle": "Register, Login, Purchase, Logout Product Purchase",
               "timedOut": null,
-              "duration": 40280,
+              "duration": 38454,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "// Step 1: Register\n_RegisterPage.default.visit();\n_RegisterPage.default.initiateRegistration(this.user.email);\n_RegisterPage.default.fillRegistrationForm(this.user);\n// Step 2: Add address\n_AddressPage.default.visit();\n_AddressPage.default.createFirstAddress(this.user);\n// Step 3: Logout\ncy.get(\"a[title='Log me out']\").should('be.visible').click();\ncy.get('.login').should('be.visible');\n// Step 4: Login\n_LoginPage.default.visit(); // Reload the login page\n_LoginPage.default.login(this.user.email, this.user.password);\n_LoginPage.default.verifyLoginSuccess();\n// Step 5: Product purchase\n_ProductPage.default.visitProduct(this.product.id, this.product.size, this.product.color);\n_ProductPage.default.addToCart();\n_ProductPage.default.proceedToCheckoutFromModal();\n// Step 6: Checkout\n_CheckoutPage.default.proceedFromSummary();\n_CheckoutPage.default.proceedFromAddress();\n_CheckoutPage.default.agreeToTerms();\n_CheckoutPage.default.proceedFromShipping();\n_CheckoutPage.default.selectBankWirePayment();\n_CheckoutPage.default.confirmOrder();\n// Step 7: Verify order\n_CheckoutPage.default.verifyOrderCompletion();\n_CheckoutPage.default.goToOrderHistory();\n// Step : Logout\ncy.get(\"a[title='Log me out']\").should('be.visible').click();\ncy.get('.login').should('be.visible');",
               "err": {},
-              "uuid": "36f88595-e2e2-41d1-ac07-ec152e4294f7",
-              "parentUUID": "3144f4c1-b9cc-40b3-adb4-7fec7cfc708d",
+              "uuid": "c1ff5c4d-0756-4944-83c5-4af99a59954c",
+              "parentUUID": "37827224-a445-4c4f-891d-ee89981f9498",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "36f88595-e2e2-41d1-ac07-ec152e4294f7"
+            "c1ff5c4d-0756-4944-83c5-4af99a59954c"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 40280,
+          "duration": 38454,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -95,7 +95,7 @@
     "marge": {
       "options": {
         "reportDir": "cypress/reports/mochawesome-report",
-        "overwrite": false,
+        "overwrite": true,
         "html": false,
         "json": true
       },

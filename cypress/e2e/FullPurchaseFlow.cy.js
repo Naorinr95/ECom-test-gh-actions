@@ -4,7 +4,7 @@ import AddressPage from '../pages/AddressPage';
 import ProductPage from '../pages/ProductPage';
 import CheckoutPage from '../pages/CheckoutPage';
 
-describe('Register, Logout, Login, and Purchase via Bank Wire', () => {
+describe('Register, Login, Purchase, Logout', () => {
   before(function () {
     cy.fixture('user').then(user => {
       user.email = `testuser_${Date.now()}@testmail.com`; // dynamic email
@@ -16,7 +16,8 @@ describe('Register, Logout, Login, and Purchase via Bank Wire', () => {
     });
   });
 
-  it('registers, logs out, logs in, adds product to cart, and completes purchase via Bank Wire', function () {
+  it('Product Purchase', function () {
+
     // Step 1: Register
     RegisterPage.visit();
     RegisterPage.initiateRegistration(this.user.email);
@@ -52,7 +53,7 @@ describe('Register, Logout, Login, and Purchase via Bank Wire', () => {
     CheckoutPage.verifyOrderCompletion();
     CheckoutPage.goToOrderHistory();
     
-    // Step : Logout
+    // Step 8: Logout
     cy.get("a[title='Log me out']").should('be.visible').click();
     cy.get('.login').should('be.visible');
     
