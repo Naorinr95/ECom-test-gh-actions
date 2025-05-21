@@ -18,6 +18,14 @@ class LoginPage {
     cy.get('.account').should('be.visible'); // Check if user account link is visible
     cy.url().should('include', 'controller=my-account');
   }
+
+  logout() {
+     cy.get("a[title='Log me out']").should('be.visible').click();
+  }
+  verifyLogout() {
+    cy.get('.login').should('be.visible');
+  }
+  
 }
 
 export default new LoginPage();

@@ -28,8 +28,8 @@ describe('Register, Login, Purchase, Logout', () => {
     AddressPage.createFirstAddress(this.user);
 
     // Step 3: Logout
-    cy.get("a[title='Log me out']").should('be.visible').click();
-    cy.get('.login').should('be.visible');
+    LoginPage.logout();
+    LoginPage.verifyLogout();
 
     // Step 4: Login
     LoginPage.visit(); // Reload the login page
@@ -54,8 +54,8 @@ describe('Register, Login, Purchase, Logout', () => {
     CheckoutPage.goToOrderHistory();
     
     // Step 8: Logout
-    cy.get("a[title='Log me out']").should('be.visible').click();
-    cy.get('.login').should('be.visible');
+    LoginPage.logout();
+    LoginPage.verifyLogout();
     
   });
 });
